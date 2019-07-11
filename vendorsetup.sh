@@ -1,3 +1,0 @@
-add_lunch_combo omni_suez-eng
-add_lunch_combo omni_suez-userdebug
-add_lunch_combo omni_suez-user
