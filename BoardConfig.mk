@@ -25,7 +25,7 @@ TARGET_CPU_ABI_LIST_32_BIT := armeabi-v7a,armeabi
 TARGET_CPU_ABI_LIST_64_BIT := arm64-v8a
 
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 androidboot.selinux=permissive androidboot.unlocked_kernel=true
-KERNEL_TOOLCHAIN_PREFIX:= /home/dragon/android-device/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.8/bin/aarch64-linux-android-
+KERNEL_TOOLCHAIN_PREFIX:= /home/dragon/android-ndk/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin/aarch64-linux-android-
 
 BOARD_KERNEL_BASE := 0x40080000
 BOARD_KERNEL_OFFSET := 0
@@ -56,7 +56,7 @@ TARGET_KERNEL_CONFIG := $(TOP_DIR)kernel/amazon/suez/arch/arm64/configs/suez_def
 TARGET_KERNEL_VARIANT_CONFIG := $(TOP_DIR)kernel/amazon/suez/arch/arm64/configs/suez_defconfig
 TARGET_KERNEL_ZIMAGE_OUT := $(TOP_DIR)kernel/amazon/suez/arch/arm64/boot
 
-#TARGET_RECOVERY_INITRC := device/amazon/suez/recovery/root/init.recovery.mt8173.rc
+TARGET_RECOVERY_INITRC := device/amazon/suez/recovery/root/init.recovery.mt8173.rc
 TARGET_RECOVERY_FSTAB := device/amazon/suez/recovery/root/recovery.fstab
 TARGET_RECOVERY_PIXEL_FORMAT := ABGR_8888
 
@@ -65,7 +65,7 @@ RECOVERY_SDCARD_ON_DATA := true
 TW_THEME := portrait_hdpi
 TW_HACKED_BL_BUTTON := true
 TW_INCLUDE_L_CRYPTO := true
-TARGET_HW_DISK_ENCRYPTION := true
+#TARGET_HW_DISK_ENCRYPTION := true
 
 # Panel vsync offsets
 PRESENT_TIME_OFFSET_FROM_VSYNC_NS := 0

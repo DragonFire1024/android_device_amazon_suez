@@ -1,4 +1,4 @@
-USE_OPENGL_RENDERER := true
+LOCAL_PATH := $(call my-dir)
 
 TARGET_COPY_OUT_SYSTEM := system
 TARGET_COPY_OUT_DATA := data
@@ -22,13 +22,8 @@ PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.wifi.direct.xm
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.bluetooth.xml
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.bluetooth_le.xml
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.touchscreen.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.touchscreen.xml
-
-ifneq ($(strip $(CUSTOM_KERNEL_STEP_COUNTER)),)
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.sensor.stepcounter.xml
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.sensor.stepdetector.xml
-endif
-
-# Permissions
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.camera.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.camera.xml
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.camera.autofocus.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.camera.autofocus.xml
 PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.camera.front.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.camera.front.xml
@@ -57,41 +52,41 @@ PRODUCT_COPY_FILES += device/amazon/suez/meta_init.rc:$(TARGET_COPY_OUT_ROOT)/me
 PRODUCT_COPY_FILES += device/amazon/suez/ueventd.goldfish.rc:$(TARGET_COPY_OUT_ROOT)/ueventd.goldfish.rc
 PRODUCT_COPY_FILES += device/amazon/suez/egl.cfg:$(TARGET_COPY_OUT_SYSTEM)/lib/egl/egl.cfg:mtk
 PRODUCT_COPY_FILES += device/amazon/suez/auto_shutdown.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/auto_shutdown.sh:mtk
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/vold.fstab:$(TARGET_COPY_OUT_SYSTEM)/etc/vold.fstab:mtk
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/vold.fstab.nand:$(TARGET_COPY_OUT_SYSTEM)/etc/vold.fstab.nand:mtk
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/vold.fstab.fat.nand:$(TARGET_COPY_OUT_SYSTEM)/etc/vold.fstab.fat.nand:mtk
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/fstab.fat.nand:$(TARGET_COPY_OUT_ROOT)/fstab.fat.nand
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/fstab.mt8173:$(TARGET_COPY_OUT_ROOT)/fstab.mt8173
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/fstab.nand:$(TARGET_COPY_OUT_ROOT)/fstab.nand
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/ht120.mtc:$(TARGET_COPY_OUT_SYSTEM)/etc/.tp/.ht120.mtc:mtk
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/init:$(TARGET_COPY_OUT_ROOT)/init
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/init.base.rc:$(TARGET_COPY_OUT_ROOT)/init.base.rc
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/init.build.rc:$(TARGET_COPY_OUT_ROOT)/init.build.rc
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/init.common_svc.rc:$(TARGET_COPY_OUT_ROOT)/init.common_svc.rc
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/init.environ.rc:$(TARGET_COPY_OUT_ROOT)/init.environ.rc
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/init.project.rc:$(TARGET_COPY_OUT_ROOT)/init.project.rc
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/meta_init.project.rc:$(TARGET_COPY_OUT_ROOT)/meta_init.project.rc
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/ueventd.mt8173.rc:$(TARGET_COPY_OUT_ROOT)/ueventd.mt8173.rc
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/ueventd.rc:$(TARGET_COPY_OUT_ROOT)/ueventd.rc
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/init.mt8173.rc:$(TARGET_COPY_OUT_ROOT)/init.mt8173.rc
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/init.suez.usb.rc:$(TARGET_COPY_OUT_ROOT)/init.suez.usb.rc
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/init.usb.rc:$(TARGET_COPY_OUT_ROOT)/init.usb.rc
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/init.recovery.mt8173.rc:$(TARGET_COPY_OUT_ROOT)/init.recovery.mt8173.rc
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/init.ssd.rc:$(TARGET_COPY_OUT_ROOT)/init.ssd.rc
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/init.xlog.rc:$(TARGET_COPY_OUT_ROOT)/init.xlog.rc
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/init.zygote32.rc:$(TARGET_COPY_OUT_ROOT)/init.zygote32.rc
+PRODUCT_COPY_FILES += device/amazon/suez/vold.fstab:$(TARGET_COPY_OUT_SYSTEM)/etc/vold.fstab:mtk
+PRODUCT_COPY_FILES += device/amazon/suez/vold.fstab.nand:$(TARGET_COPY_OUT_SYSTEM)/etc/vold.fstab.nand:mtk
+PRODUCT_COPY_FILES += device/amazon/suez/vold.fstab.fat.nand:$(TARGET_COPY_OUT_SYSTEM)/etc/vold.fstab.fat.nand:mtk
+PRODUCT_COPY_FILES += device/amazon/suez/fstab.fat.nand:$(TARGET_COPY_OUT_ROOT)/fstab.fat.nand
+PRODUCT_COPY_FILES += device/amazon/suez/fstab.mt8173:$(TARGET_COPY_OUT_ROOT)/fstab.mt8173
+PRODUCT_COPY_FILES += device/amazon/suez/fstab.nand:$(TARGET_COPY_OUT_ROOT)/fstab.nand
+PRODUCT_COPY_FILES += device/amazon/suez/ht120.mtc:$(TARGET_COPY_OUT_SYSTEM)/etc/.tp/.ht120.mtc:mtk
+PRODUCT_COPY_FILES += device/amazon/suez/init:$(TARGET_COPY_OUT_ROOT)/init
+PRODUCT_COPY_FILES += device/amazon/suez/init.base.rc:$(TARGET_COPY_OUT_ROOT)/init.base.rc
+PRODUCT_COPY_FILES += device/amazon/suez/init.build.rc:$(TARGET_COPY_OUT_ROOT)/init.build.rc
+PRODUCT_COPY_FILES += device/amazon/suez/init.common_svc.rc:$(TARGET_COPY_OUT_ROOT)/init.common_svc.rc
+PRODUCT_COPY_FILES += device/amazon/suez/init.environ.rc:$(TARGET_COPY_OUT_ROOT)/init.environ.rc
+PRODUCT_COPY_FILES += device/amazon/suez/init.project.rc:$(TARGET_COPY_OUT_ROOT)/init.project.rc
+PRODUCT_COPY_FILES += device/amazon/suez/meta_init.project.rc:$(TARGET_COPY_OUT_ROOT)/meta_init.project.rc
+PRODUCT_COPY_FILES += device/amazon/suez/ueventd.mt8173.rc:$(TARGET_COPY_OUT_ROOT)/ueventd.mt8173.rc
+PRODUCT_COPY_FILES += device/amazon/suez/ueventd.rc:$(TARGET_COPY_OUT_ROOT)/ueventd.rc
+PRODUCT_COPY_FILES += device/amazon/suez/init.mt8173.rc:$(TARGET_COPY_OUT_ROOT)/init.mt8173.rc
+PRODUCT_COPY_FILES += device/amazon/suez/init.suez.usb.rc:$(TARGET_COPY_OUT_ROOT)/init.suez.usb.rc
+PRODUCT_COPY_FILES += device/amazon/suez/init.usb.rc:$(TARGET_COPY_OUT_ROOT)/init.usb.rc
+PRODUCT_COPY_FILES += device/amazon/suez/init.recovery.mt8173.rc:$(TARGET_COPY_OUT_ROOT)/init.recovery.mt8173.rc
+PRODUCT_COPY_FILES += device/amazon/suez/init.ssd.rc:$(TARGET_COPY_OUT_ROOT)/init.ssd.rc
+PRODUCT_COPY_FILES += device/amazon/suez/init.xlog.rc:$(TARGET_COPY_OUT_ROOT)/init.xlog.rc
+PRODUCT_COPY_FILES += device/amazon/suez/init.zygote32.rc:$(TARGET_COPY_OUT_ROOT)/init.zygote32.rc
 
 # Audio/Media/WiFi/connectivity configs and codecs
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/partition_permission.sh:$(TARGET_COPY_OUT_SYSTEM)/etc/partition_permission.sh:mtk
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/thermal.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/.tp/thermal.conf:mtk
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/thermal.off.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/.tp/thermal.off.conf:mtk
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/shutdownalertdialog.sh:s$(TARGET_COPY_OUT_SYSTEM)/bin/shutdownalertdialog.sh:mtk
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/throttle.sh:$(TARGET_COPY_OUT_SYSTEM)/etc/throttle.sh:mtk
+PRODUCT_COPY_FILES += device/amazon/suez/partition_permission.sh:$(TARGET_COPY_OUT_SYSTEM)/etc/partition_permission.sh:mtk
+PRODUCT_COPY_FILES += device/amazon/suez/thermal.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/.tp/thermal.conf:mtk
+PRODUCT_COPY_FILES += device/amazon/suez/thermal.off.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/.tp/thermal.off.conf:mtk
+PRODUCT_COPY_FILES += device/amazon/suez/shutdownalertdialog.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/shutdownalertdialog.sh:mtk
+PRODUCT_COPY_FILES += device/amazon/suez/throttle.sh:$(TARGET_COPY_OUT_SYSTEM)/etc/throttle.sh:mtk
 PRODUCT_COPY_FILES += frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/media_codecs_google_audio.xml
 PRODUCT_COPY_FILES += frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/media_codecs_google_telephony.xml
 PRODUCT_COPY_FILES += frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/media_codecs_google_video_le.xml
 PRODUCT_COPY_FILES += device/amazon/suez/media_codecs.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/media_codecs.xml
-PRODUCT_COPY_FILES += device/amazon/suez/configs/media_codecs_mediatek_video.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/media_codecs_mediatek_video.xml
+PRODUCT_COPY_FILES += device/amazon/suez/media_codecs_mediatek_video.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/media_codecs_mediatek_video.xml
 PRODUCT_COPY_FILES += device/amazon/suez/media_codecs_mediatek_audio.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/media_codecs_mediatek_audio.xml:mtk
 PRODUCT_COPY_FILES += device/amazon/suez/media_profiles.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/media_profiles.xml:mtk
 PRODUCT_COPY_FILES += device/amazon/suez/media_profiles.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/media_profiles.xml
@@ -99,7 +94,7 @@ PRODUCT_COPY_FILES += device/amazon/suez/media_codecs_performance.xml:$(TARGET_C
 PRODUCT_COPY_FILES += device/amazon/suez/custom.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/custom.conf
 PRODUCT_COPY_FILES += device/amazon/suez/spn-conf.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/spn-conf.xml
 PRODUCT_COPY_FILES += device/amazon/suez/ACCDET.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/ACCDET.kl
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/slp_conf:$(TARGET_COPY_OUT_SYSTEM)/etc/slp_conf
+PRODUCT_COPY_FILES += device/amazon/suez/slp_conf:$(TARGET_COPY_OUT_SYSTEM)/etc/slp_conf
 PRODUCT_COPY_FILES += device/amazon/suez/audio/mixer_paths.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/mixer_paths.xml
 PRODUCT_COPY_FILES += device/amazon/suez/audio/AudioParamOptions.xml:s$(TARGET_COPY_OUT_SYSTEM)/etc/audio_param/AudioParamOptions.xml
 PRODUCT_COPY_FILES += device/amazon/suez/audio/audio_em.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/audio_em.xml
@@ -107,9 +102,9 @@ PRODUCT_COPY_FILES += device/amazon/suez/audio/audio_policy.conf:$(TARGET_COPY_O
 PRODUCT_COPY_FILES += device/amazon/suez/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/audio_policy_configuration.xml
 PRODUCT_COPY_FILES += device/amazon/suez/seccomp_policy/mediacodec.policy:$(TARGET_COPY_OUT_SYSTEM)/etc/seccomp_policy/mediacodec.policy
 PRODUCT_COPY_FILES += device/amazon/suez/seccomp_policy/mediaextractor.policy:$(TARGET_COPY_OUT_SYSTEM)m/etc/seccomp_policy/mediaextractor.policy
-PRODUCT_COPY_FILES += device/amazon/suez/device/amazon/suez/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/wifi/wpa_supplicant.conf
-PRODUCT_COPY_FILES += device/amazon/suez//wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/wifi/p2p_supplicant_overlay.conf
-PRODUCT_COPY_FILES += device/amazon/suez//wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/wifi/wpa_supplicant_overlay.conf
+PRODUCT_COPY_FILES += device/amazon/suez/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/wifi/wpa_supplicant.conf
+PRODUCT_COPY_FILES += device/amazon/suez/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/wifi/p2p_supplicant_overlay.conf
+PRODUCT_COPY_FILES += device/amazon/suez/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/wifi/wpa_supplicant_overlay.conf
 
 #Properties
 PRODUCT_PROPERTY_OVERRIDES += wfd.iframesize.level=0
@@ -480,7 +475,7 @@ PRODUCT_COPY_FILES += vendor/amazon/suez/proprietary/vendor/lib64/hw/amzn_drmpro
 PRODUCT_COPY_FILES += vendor/amazon/suez/proprietary/vendor/lib64/hw/audio_policy.stub.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/hw/audio_policy.stub.so
 PRODUCT_COPY_FILES += vendor/amazon/suez/proprietary/vendor/lib64/hw/audio.a2dp.default.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/hw/audio.a2dp.default.so
 PRODUCT_COPY_FILES += vendor/amazon/suez/proprietary/vendor/lib64/hw/audio.primary.mt8173.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/hw/audio.primary.mt8173.so
-PRODUCT_COPY_FILES += vendor/amazon/suez/proprietary/vendor/lib64/hw/audio.r_submix.default.so$(TARGET_COPY_OUT_SYSTEM)/lib64/hw/audio.r_submix.default.so
+PRODUCT_COPY_FILES += vendor/amazon/suez/proprietary/vendor/lib64/hw/audio.r_submix.default.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/hw/audio.r_submix.default.so
 PRODUCT_COPY_FILES += vendor/amazon/suez/proprietary/vendor/lib64/hw/audio.usb.default.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/hw/audio.usb.default.so
 PRODUCT_COPY_FILES += vendor/amazon/suez/proprietary/vendor/lib64/hw/camera.mt8173.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/hw/camera.mt8173.so
 PRODUCT_COPY_FILES += vendor/amazon/suez/proprietary/vendor/lib64/hw/gralloc.mt8173.img.so:$(TARGET_COPY_OUT_VENDOR)/lib64/hw/gralloc.mt8173.img.so

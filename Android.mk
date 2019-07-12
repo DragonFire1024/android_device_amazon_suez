@@ -23,12 +23,10 @@
 # *not* include it on all devices, so it is safe even with hardware-specific
 # components.
 
-ifneq ($(filter aosp_suez, $(TARGET_DEVICE)),)
+ifneq ($(filter suez, $(TARGET_DEVICE)),)
 
 LOCAL_PATH := $(call my-dir)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
-
-L_CFLAGS += -Wno-unused-parameter
 
 endif
